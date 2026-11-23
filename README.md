@@ -13,14 +13,15 @@ Most ML projects predict an outcome directly ("will this customer convert?"). Th
 1. **Randomization check** — verified customer attributes (recency, purchase history, newbie status) were statistically balanced across treatment and control groups *before* the campaign, confirming any later differences can be attributed to the email itself.
 2. **T-learner (two-model approach)** — trained separate models on treated vs. control customers for each outcome (visit, conversion, spend), then calculated each customer's individual uplift score as the difference between their predicted outcomes under each scenario.
 3. **Cross-validation** — built a second, independent uplift model (ClassTransformation) to test whether findings held up across methods, rather than trusting a single technique.
-4. **Statistical validation** — bootstrapped confidence intervals (1,000 resamples) on the headline revenue estimates, to report a defensible range rather than a single point figure.
+4. **Statistical validation** — bootstrapped the actual A/B difference in observed spend (emailed vs. control, 1,000 resamples) to report a defensible range rather than a single point figure, and checked that it stays above zero.
 5. **Customer segmentation** — classified customers into Persuadable, Sure Thing, Lost Cause, and Sleeping Dog segments using data-driven thresholds (quartiles of the actual score distributions), based on revenue uplift specifically.
 
 ## Key Findings
 
 **1. Both campaigns generated real, statistically validated incremental revenue.**
-- Mens campaign: $0.77/customer average uplift, $32,748.77 total estimated incremental revenue (95% CI: $32,568.59–$32,921.00)
-- Womens campaign: $0.42/customer average uplift, $18,119.77 total estimated incremental revenue (95% CI: $17,961.65–$18,279.65)
+- Mens campaign: **+$0.77 per customer** (95% bootstrap CI: $0.48–$1.06); about **$32.7K projected** if all 42.6K customers in the comparison were emailed
+- Womens campaign: **+$0.42 per customer** (95% bootstrap CI: $0.15–$0.69); about **$18.1K projected** across 42.7K customers
+- Both confidence intervals stay above zero, so the lift is real, not chance.
 - Both results independently matched the real published Hillstrom benchmark figures, confirming the modeling approach produced legitimate, accurate estimates.
 
 **2. A surprising early result held up under scrutiny.** The Mens campaign's T-learner initially showed a suspiciously clean 99.998% of customers with positive uplift. Rather than accepting this at face value, a second independent method (ClassTransformation) was built to test it — both methods agreed closely, turning an initial red flag into a validated finding.
