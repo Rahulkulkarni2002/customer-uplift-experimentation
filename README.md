@@ -19,8 +19,8 @@ Most ML projects predict an outcome directly ("will this customer convert?"). Th
 ## Key Findings
 
 **1. Both campaigns generated real, statistically validated incremental revenue.**
-- Mens campaign: **+$0.77 per customer** (95% bootstrap CI: $0.48–$1.06); about **$32.7K projected** if all 42.6K customers in the comparison were emailed
-- Womens campaign: **+$0.42 per customer** (95% bootstrap CI: $0.15–$0.69); about **$18.1K projected** across 42.7K customers
+- Mens campaign: **+$0.77 per customer** (95% bootstrap CI: $0.48–$1.06). That is about **$16.4K actual** for the 21,307 customers who were emailed, and about $32.7K projected if all 42.6K customers in the comparison were emailed
+- Womens campaign: **+$0.42 per customer** (95% bootstrap CI: $0.15–$0.69). That is about **$9.1K actual** for the 21,387 customers who were emailed, and about $18.1K projected across 42.7K customers
 - Both confidence intervals stay above zero, so the lift is real, not chance.
 - Both results independently matched the real published Hillstrom benchmark figures, confirming the modeling approach produced legitimate, accurate estimates.
 
